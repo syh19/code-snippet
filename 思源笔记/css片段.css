@@ -1,0 +1,113 @@
+/* 隐藏、后退、前进、日历、搜集箱按钮 */
+#barBack,
+#barForward,
+#calendar,
+[data-type='inbox'] {
+  display: none;
+}
+#barMode {
+  margin-right: 45px;
+}
+
+/* 增高自定义CSS文本框高度 */
+textarea.fn__block.b3-text-field {
+  min-height: 150px;
+}
+
+/* 每个文档的题目标签 */
+[data-type='tab-header'].item.item--focus {
+  background-color: pink;
+}
+
+/* 放大笔记本 */
+[data-path='/'] {
+  transform: scale(2);
+  transform-origin: left top;
+}
+
+/* 隐藏设置项（云端页、S3配置页） */
+[data-name='repos'].b3-list-item.b3-list-item--big,
+[data-name='account'].b3-list-item.b3-list-item--big {
+  display: none;
+}
+
+/* 不允许重置数据仓库 */
+#resetRepo {
+  display: none;
+}
+
+/* 隐藏操作按钮 */
+#allowCreateDeeper,
+#removeDocWithoutConfirm {
+  display: none;
+}
+
+/* 隐藏全局关系图按钮 */
+[data-title='全局关系图'] {
+  display: none;
+}
+
+/* -------------------------各种内容块样式-start---------------------- */
+/* SQL块样式 */
+[data-node-id].render-node[data-type='NodeBlockQueryEmbed'] {
+  background-color: bisque !important;
+  border: solid black 2px !important;
+  border-radius: 10px !important;
+}
+[data-node-id].render-node[data-type='NodeBlockQueryEmbed']::after {
+  display: block;
+  position: absolute;
+  height: 14px;
+  right: 8px;
+  top: -8px;
+  border-radius: 5px;
+  line-height: 14px;
+  background-color: rgb(255, 53, 147);
+  content: 'SQL';
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* 标签样式 */
+span[data-type='tag']::before,
+span[data-type='tag']::after {
+  content: '#';
+  font-size: 10px;
+}
+
+/* 引用块样式 */
+span[data-type='block-ref'][data-id][data-subtype]::before {
+  content: '[[';
+  font-size: 10px;
+}
+span[data-type='block-ref'][data-id][data-subtype]::after {
+  content: ']]';
+  font-size: 10px;
+}
+
+/* 图片 */
+img[src][data-src] {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+img[src][data-src]:hover {
+  background-color: pink;
+}
+
+/* 高级图标 */
+div[data-type='NodeCodeBlock'] {
+  border: 1px solid black;
+}
+/* -------------------------各种内容块样式-end---------------------- */
+
+/* 空行输入提示 */
+.protyle-wysiwyg.protyle-wysiwyg--attr:empty::after,
+.protyle-wysiwyg.protyle-wysiwyg--attr:not(:has(> div:nth-child(2)))
+  > div
+  > div[contenteditable='true']:empty::after {
+  content: "键入文字或者 '/' 选择";
+  color: #85858585;
+  opacity: 0.85;
+  letter-spacing: 0.13px;
+  padding-left: 1.86pt;
+}
